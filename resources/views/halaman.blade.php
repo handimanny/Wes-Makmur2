@@ -51,6 +51,7 @@
                                     <h5 class="card-title">{{ $file->namaProduk }}</h5>
                                     <h5 class="card-text">Rp {{ $file->harga }}</h5>
                                     <p class="card-text">{{ $file->descProduk }}</p>
+                                    <a class="nav-link btn btn-outline-dark" href="/">Beli</a>
                                 </div>
                             </div>
                         </div>
