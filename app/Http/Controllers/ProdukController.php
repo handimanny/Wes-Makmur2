@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProdukController extends Controller
@@ -93,28 +94,57 @@ class ProdukController extends Controller
     {
         //
         $data = Produk::findOrFail($id);
-        if ($request->file('foto')) {
-            $file = $request->file('foto')->store('img');
-            if ($request->foto){
-                Storage::delete($data->foto);
+
+        if (Auth::user()->role == 'admin'){
+            
+            if ($request->file('foto')) {
+                $file = $request->file('foto')->store('img');
+                if ($request->foto){
+                    Storage::delete($data->foto);
+                }
+                $data->update([
+                    'namaProduk' => $request->namaProduk,
+                    'foto' => $file,
+                    'harga' => $request->harga,
+                    'descProduk' => $request->descProduk,
+                    'kategori_id' => $request->kategori_id,
+                    'status' => $data->status,
+                ]);
+            } else {
+                $data->update([
+                    'namaProduk' => $request->namaProduk,
+                    'foto' => $data->foto,
+                    'harga' => $request->harga,
+                    'descProduk' => $request->descProduk,
+                    'kategori_id' => $request->kategori_id,
+                    'status' => $request->status,
+                ]);
             }
-            $data->update([
-                'namaProduk' => $request->namaProduk,
-                'foto' => $file,
-                'harga' => $request->harga,
-                'descProduk' => $request->descProduk,
-                'kategori_id' => $request->kategori_id,
-                'status' => $request->status,
-            ]);
-        } else {
-            $data->update([
-                'namaProduk' => $request->namaProduk,
-                'foto' => $data->foto,
-                'harga' => $request->harga,
-                'descProduk' => $request->descProduk,
-                'kategori_id' => $request->kategori_id,
-                'status' => $request->status,
-            ]);
+
+        }elseif (Auth::user()->role == 'editor'){
+
+            if ($request->file('foto')) {
+                $file = $request->file('foto')->store('img');
+                if ($request->foto){
+                    Storage::delete($data->foto);
+                }
+                $data->update([
+                    'namaProduk' => $request->namaProduk,
+                    'foto' => $file,
+                    'harga' => $request->harga,
+                    'descProduk' => $request->descProduk,
+                    'kategori_id' => $request->kategori_id,
+                ]);
+            } else {
+                $data->update([
+                    'namaProduk' => $request->namaProduk,
+                    'foto' => $data->foto,
+                    'harga' => $request->harga,
+                    'descProduk' => $request->descProduk,
+                    'kategori_id' => $request->kategori_id,
+                ]);
+            }
+
         }
         return redirect('/produk')->with('success', 'berhasil edit produk');
     }
