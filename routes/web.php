@@ -27,11 +27,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::resource('rekomen', RekomenController::class);
+Route::get('halaman/{id}/lihat', [HomeController::class,'halaman'])->name('halaman')->middleware('auth');
 
-Route::middleware(['auth'])->group(function () {
-
-    Route::get('halaman/{id}/lihat', [HomeController::class,'halaman'])->name('halaman');
-
+Route::middleware(['auth','editor'])->group(function () {
     Route::resource('kategori', KategoriController::class);
     Route::get('deletekategori/{id}', [KategoriController::class,'destroy'])->name('deletekategori');
     Route::resource('postingan', PostinganController::class);

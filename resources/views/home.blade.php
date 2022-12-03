@@ -9,26 +9,42 @@
 
                 <div class="card-body">
                     
-                        <div class="row">
+                        <!-- <div class="row">
                             @foreach ($data as $file)
                             <div class="form">
                                 <div class="card">
                                     <a href="{{url('halaman/'.$file->id.'/lihat')}}" class="btn btn-outline-dark" >
-                                        <!-- <div class="card-body"> -->
 
                                             <h5 class="card-title">Judul : {{ $file->judul }}</h5>
                                             <h5 class="card-text">Kategori : {{$file->kategori->nama_kategori}}</h5>
-
-                                        <!-- </div> -->
                                     </a>
 
                                     
                                 </div>
                             </div>
                             @endforeach
-                        </div>
+                        </div> -->
 
-                        <div class="row mt-2">
+                        <!-- <div class="row">
+                            @foreach ($data as $file)
+                            <div class="form">
+                                <div class="card">
+                                    <a href="{{url('halaman/'.$file->id.'/lihat')}}" class="btn btn-outline-dark" >
+                                        <div class="card-body">
+
+                                            <h5 class="card-title">Judul : {{ $file->judul }}</h5>
+                                            <h5 class="card-text">Kategori : {{$file->kategori->nama_kategori}}</h5>
+
+                                        </div>
+                                    </a>
+
+                                    
+                                </div>
+                            </div>
+                            @endforeach
+                        </div> -->
+
+                        <!-- <div class="row mt-2">
                             @foreach ($data as $file)
                             <div class="form">
                                 <div class="card">
@@ -45,9 +61,9 @@
                                 </div>
                             </div>
                             @endforeach
-                        </div>
+                        </div> -->
 
-                        <div class="row">
+                        <!-- <div class="row">
                             @foreach ($data as $file)
                             <div class="col-lg-4 mt-2">
                                 <div class="card">
@@ -61,9 +77,9 @@
                                     
                             </div>
                             @endforeach
-                        </div>
+                        </div> -->
                         
-                        <div class="row">
+                        <!-- <div class="row">
                             @foreach ($data as $file)
                             <div class="col-lg-4 mt-2">
                                 <div class="card">
@@ -77,7 +93,7 @@
                                     
                             </div>
                             @endforeach
-                        </div>
+                        </div> -->
 
                         <div class="row">
                             @foreach ($data as $file)
@@ -97,9 +113,9 @@
                             @endforeach
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             @foreach ($data as $file)
-                            <!-- <div class="col-lg-4 col-md-2 col-sm-2 mt-2"> -->
+                            <div class="col-lg-4 col-md-2 col-sm-2 mt-2">
                             <div class="col-lg-4 mt-2">
                                 <div class="card">
                                 <a class="nav-link" href="{{url('halaman/'.$file->id.'/lihat')}}">
@@ -114,7 +130,7 @@
                                 </div>
                             </div>
                             @endforeach
-                        </div>
+                        </div> -->
 
                 </div>
             </div>
