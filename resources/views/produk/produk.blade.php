@@ -17,7 +17,7 @@
                               <th scope="col">Nama Produk</th>
                               <th scope="col">Foto</th>
                               <th scope="col">Harga</th>
-                              <th scope="col">Deskripsi</th>
+                              <!-- <th scope="col">Deskripsi</th> -->
                               <th scope="col">Kategori</th>
                               <th scope="col">Status</th>
                               <th scope="col">Aksi</th>
@@ -26,16 +26,16 @@
                           <tbody>
                               @foreach ($data as $file)
                               <tr>
-                              <th scope="row">{{$loop->iteration}}</th>
+                              <td scope="row">{{$loop->iteration}}</td >
                               <td>{{$file['namaProduk']}}</td>
                               <td>
                                 <img src="{{ asset('storage/'.$file->foto) }}" width="100px" alt="">
                               </td>
                               <td>{{$file['harga']}}</td>
-                              <td>{{$file['descProduk']}}</td>
+                              <!-- <td>{{$file['descProduk']}}</td> -->
                               <td>{{$file->kategori->nama_kategori}}</td>
                               <td>{{$file['status']}}</td>
-                              <td>
+                              <td scope="row">
                               <a href="{{url('produk/'.$file->id.'/edit')}}" class="btn btn-outline-success" >Edit</a>
                               |
                               <a href="{{url('deleteproduk/'.$file->id)}}" class="btn btn-outline-danger" >Hapus</a>

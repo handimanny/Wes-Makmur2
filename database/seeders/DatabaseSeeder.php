@@ -83,6 +83,22 @@ class DatabaseSeeder extends Seeder
         Produk::create([
             'namaProduk'=> 'jamu bubuk',
             'foto'=> 'img/pPr0eSWln3gWtnrN3S39OBWUIT52JIj9hA8e2g9w.png',
+            'harga'=> 10000,
+            'descProduk'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            'kategori_id'=> 1,
+            'status'=> 'tampil',
+        ]);
+        Produk::create([
+            'namaProduk'=> 'jamu bubuk',
+            'foto'=> 'img/pPr0eSWln3gWtnrN3S39OBWUIT52JIj9hA8e2g9w.png',
+            'harga'=> 50000,
+            'descProduk'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            'kategori_id'=> 2,
+            'status'=> 'tampil',
+        ]);
+        Produk::create([
+            'namaProduk'=> 'jamu bubuk',
+            'foto'=> 'img/pPr0eSWln3gWtnrN3S39OBWUIT52JIj9hA8e2g9w.png',
             'harga'=> 20000,
             'descProduk'=> 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             'kategori_id'=> 1,

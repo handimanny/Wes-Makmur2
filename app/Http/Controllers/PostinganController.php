@@ -6,6 +6,7 @@ use App\Models\Kategori;
 use App\Models\Postingan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostinganController extends Controller
 {
@@ -17,7 +18,11 @@ class PostinganController extends Controller
     public function index()
     {
         //menampilkan semu data postingan
-        $data = Postingan::all();
+        if(Auth::user()->role == "admin"){
+            $data = Postingan::all();
+        } else {
+            $data = Postingan::where('user_id', Auth::user()->id)->get();
+        };
         return view('/postingan/postingan', compact('data'));
     }
 
