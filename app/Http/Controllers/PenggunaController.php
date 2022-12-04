@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class PenggunaController extends Controller
 {
@@ -28,6 +29,8 @@ class PenggunaController extends Controller
     public function create()
     {
         //
+        $data = User::all();
+        return view('/pengguna/create', compact('data'));
     }
 
     /**
@@ -39,6 +42,23 @@ class PenggunaController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request);
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|string',
+            'password' => 'required',
+            'role' => 'string',
+        ]);
+
+        $data = new User();
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->password = Hash::make($request->password);
+        $data->role = $request->role;
+        $data->save();
+
+        return redirect('/pengguna')->with('success', 'berhasil buat pengguna');
     }
 
     /**
@@ -76,12 +96,32 @@ class PenggunaController extends Controller
     {
         //perbarui data pengguna
         $data = User::findOrFail($id);
-        $data->update([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-        'role' => $request->role,
+        
+        
+        // if ($request->password)
+        // $data->password = Hash::make($request->password);        
+        // $data->save();
+
+        // $data->update([
+        // 'name' => $request->name,
+        // 'email' => $request->email,
+        // 'password' => Hash::make($request->password),
+        // 'role' => $request->role,
+        // ]);
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'role' => 'required',
         ]);
+
+        $data->name = $request->name;
+        $data->email = $request->email;
+        if ($request->password)
+            $data->password = Hash::make($request->password);
+        $data->role = $request->role;
+        $data->update();
+
         return redirect('/pengguna')->with('success', 'berhasil perbarui pengguna');
     }
 

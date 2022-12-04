@@ -17,7 +17,7 @@
                               <th scope="col">Judul</th>
                               <th scope="col">Tanggal Dibuat</th>
                               <th scope="col">Kategori</th>
-                              <!-- <th scope="col">Pembuat</th> -->
+                              <th scope="col">Pembuat</th>
                               <th scope="col">Status</th>
                               <th scope="col">Aksi</th>
                               </tr>

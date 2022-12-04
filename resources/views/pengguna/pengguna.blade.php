@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     
-                    <!-- <a href="pengguna/create" class="btn btn-outline-primary" >Tambah Pengguna</a> -->
+                    <a href="pengguna/create" class="btn btn-outline-primary" >Tambah Pengguna</a>
                       <table class="table">
                           <thead>
                               <tr>

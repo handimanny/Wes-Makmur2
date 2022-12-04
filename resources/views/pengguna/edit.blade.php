@@ -22,7 +22,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Edit Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Input password" value="{{$data->password}}" >
+                    <input type="password" class="form-control" id="password" name="password" placeholder="****************" >
                 </div>
                 @if (Auth::user()->role == 'admin')
                 <div class="mb-3">

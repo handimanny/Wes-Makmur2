@@ -9,9 +9,6 @@
 
                 <div class="card-body">
                     
-                <form action="{{url('postingan/'.$data->id)}}" method="POST">
-                    @csrf
-                    @method('PUT')
                 <div class="mb-3">
                     <p>
                         Judul : {{$data->judul}}
@@ -21,9 +18,16 @@
                     {{$data->isi}}
                 </div>
                 <div class="mb-3">
-                Kategori : {{$data->kategori->nama_kategori}}, Tanggal dibuat : {{$data->tanggalDibuat}}, Pembuat : {{$data->user->name}}
+                    Kategori :
+                    <a class="btn btn-outline-dark" >{{$data->kategori->nama_kategori}}</a>
+                    Tanggal dibuat :
+                    <a class="btn btn-outline-dark" >{{$data->tanggalDibuat}}</a>
+                    Pembuat :
+                    <a class="btn btn-outline-dark" >{{$data->user->name}}</a>
+                <!-- @foreach ($postingan as $file)
+                <span>Pembaca2 : {{ DB::table('lihats')->where('postingan_id', $file->id)->count() }}</span>
+                @endforeach -->
                 </div>
-                </form>
 
                 </div>
             </div>

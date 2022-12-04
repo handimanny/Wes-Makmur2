@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('postingans', function (Blueprint $table) {
+        Schema::create('lihats', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->text('isi');
-            $table->date('tanggalDibuat')->nullable();
+            $table->foreignId('postingan_id')->constrained('postingans')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('kategori_id')->constrained('kategoris')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('status')->default('tdk_tampil');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('postingans');
+        Schema::dropIfExists('lihats');
     }
 };

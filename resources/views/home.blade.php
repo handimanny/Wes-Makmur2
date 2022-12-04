@@ -8,6 +8,22 @@
                 <div class="card-header">{{ __('Halaman Postingan') }}</div>
 
                 <div class="card-body">
+
+                <!-- pilih kategori awal -->
+                <div class="dropdown mb-3">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Kategori
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/">Semua Kategori</a></li>
+                        @foreach ($kategori as $ini)
+                            <li><a class="dropdown-item" href="/{{ $ini->id }}">{{ $ini->nama_kategori }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+                <!-- pilih kategori ahir -->
                     
                         <!-- <div class="row">
                             @foreach ($data as $file)
@@ -107,6 +123,17 @@
                                         <h5 class="card-title">Judul : {{ $file->judul }}</h5>
                                         <h5 class="card-text">Kategori : {{$file->kategori->nama_kategori}}</h5>
                                         <a class="nav-link btn btn-outline-dark" href="{{url('halaman/'.$file->id.'/lihat')}}">Lihat</a>
+                                        <span>Pembaca : {{ DB::table('lihats')->where('postingan_id', $file->id)->count() }},</span>
+
+                                        @guest
+                                        Belum Dibaca
+                                        @else
+                                            @if (DB::table('lihats')->where('postingan_id', $file->id)->where('user_id', Auth::user()->id)->exists())
+                                            Sudah Dibaca
+                                            @else
+                                            Belum Dibaca
+                                            @endif
+                                        @endguest
                                     </div>
                                 </div>
                             </div>

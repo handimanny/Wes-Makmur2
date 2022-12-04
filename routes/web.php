@@ -46,3 +46,6 @@ Route::middleware(['auth','admin'])->group(function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+//kategori filter
+Route::get('{id}', [HomeController::class, 'kategori']);
