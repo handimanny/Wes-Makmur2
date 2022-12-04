@@ -4,14 +4,18 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Halaman Postingan') }}</div>
+            <div class="card bg-dark border-light" >
+                <div class="card-header text-light border-light">{{ __('Halaman Postingan') }}</div>
 
                 <div class="card-body">
 
                 <!-- pilih kategori awal -->
                 <div class="dropdown mb-3">
-                    <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    <!-- <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Kategori
+                    </a> -->
+                    <a class="btn btn-outline-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Kategori
                     </a>
@@ -119,10 +123,10 @@
                                     <div style="max-height:100px; overflow:hidden;" >
                                         <img src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_960_720.jpg" class="card-img-top" alt="">
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body bg-dark text-light">
                                         <h5 class="card-title">Judul : {{ $file->judul }}</h5>
                                         <h5 class="card-text">Kategori : {{$file->kategori->nama_kategori}}</h5>
-                                        <a class="nav-link btn btn-outline-dark" href="{{url('halaman/'.$file->id.'/lihat')}}">Lihat</a>
+                                        <a class="nav-link btn btn-outline-secondary" href="{{url('halaman/'.$file->id.'/lihat')}}">Lihat</a>
                                         <span>Pembaca : {{ DB::table('lihats')->where('postingan_id', $file->id)->count() }},</span>
 
                                         @guest

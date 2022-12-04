@@ -4,13 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Pengguna') }}</div>
+            <div class="card bg-dark text-light border-light">
+                <div class="card-header border-light">{{ __('Pengguna') }}</div>
 
                 <div class="card-body">
                     
                     <a href="pengguna/create" class="btn btn-outline-primary" >Tambah Pengguna</a>
-                      <table class="table">
+                      <table class="table text-light">
                           <thead>
                               <tr>
                               <th scope="col">#</th>

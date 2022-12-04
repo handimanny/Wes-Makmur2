@@ -26,16 +26,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body class="bg-dark" >
 <div class="min">
   <div class="div">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand {{ request()->is('/*')? 'active fw-semibold':'' }}" href="{{ url('/') }}">
                     Wes Makmur
                 </a>
-                <a class="nav-link {{ request()->is('rekomen*')? 'active fw-semibold':'' }}" href="{{ url('rekomen') }}">
+                <a class="nav-link text-light {{ request()->is('rekomen*')? 'active fw-semibold':'' }}" href="{{ url('rekomen') }}">
                     Rekomendasi
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -133,7 +133,7 @@
     </div>
 
     </div>
-<footer class="navbar shadow-lg p-3 mt-4">
+<footer class="navbar shadow-lg p-3 mt-4 text-light">
 <div class="container">
     <p></p>
 

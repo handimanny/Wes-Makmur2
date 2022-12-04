@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Produk/Buat') }}</div>
+            <div class="card bg-dark text-light border-light">
+                <div class="card-header border-light">{{ __('Produk/Buat') }}</div>
 
                 <div class="card-body">
                     
@@ -57,8 +57,8 @@
                     <label for="status" class="form-label @error('status') is-invalid @enderror">Tambah Status</label>
                     <select name="status" id="status" class="form-control">
                         <option selected>Pilih Status</option>
-                        <option value="tidak">Tidak Tampil</option>
                         <option value="tampil">Tampil</option>
+                        <option value="tidak">Tidak Tampil</option>
                     </select>
                 </div>
                 @endif

@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Rekomendasi') }}</div>
+            <div class="card bg-dark text-light border-light">
+                <div class="card-header border-light">{{ __('Rekomendasi') }}</div>
 
                 <div class="card-body">
                     
@@ -33,27 +33,32 @@
                         </div>
                     </form>
                     <div>
-                        @isset($data)    
-                        <h3>Rekomendasi</h3>                        
-                        <table class="table table-hover">
+                        @isset($data)
+                        <div class="card-header border-light h3">{{ __('Rekomendasi Pemakaian') }}</div>                       
+                        <table class="table table-hover text-light">
                             <tr>
                                 <th>Nama Jamu</th>
+                                <th>:</th>
                                 <td>{{$data['jamunya']}}</td>
                             </tr>
                             <tr>
                                 <th>Khasiat</th>
+                                <th>:</th>
                                 <td>{{$data['khasiatnya']}}</td>
                             </tr>
                             <tr>
                                 <th>Keluhan</th>
+                                <th>:</th>
                                 <td>{{$data['keluhannya']}}</td>
                             </tr>
                             <tr>
                                 <th>Umur</th>
+                                <th>:</th>
                                 <td>{{$data['umurnya']}}</td>
                             </tr>
                             <tr>
                                 <th>Penggunaan</th>
+                                <th>:</th>
                                 <td>{{$data['sarannya']}}</td>
                             </tr>
                         </table>

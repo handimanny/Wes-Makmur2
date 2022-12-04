@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Detail Postingan') }}</div>
+            <div class="card bg-dark text-light border-light">
+                <div class="card-header border-light">{{ __('Detail Postingan') }}</div>
 
                 <div class="card-body">
                     
@@ -19,13 +19,13 @@
                 </div>
                 <div class="mb-3">
                     Kategori :
-                    <button class="btn btn-outline-dark" disabled>{{$data->kategori->nama_kategori}}</button>
+                    <button class="btn btn-outline-black" disabled>{{$data->kategori->nama_kategori}}</button>
                     Tanggal dibuat :
-                    <button class="btn btn-outline-dark" disabled>{{$data->tanggalDibuat}}</button>
+                    <button class="btn btn-outline-black" disabled>{{$data->tanggalDibuat}}</button>
                     Pembuat :
-                    <button class="btn btn-outline-dark" disabled>{{$data->user->name}}</button>
+                    <button class="btn btn-outline-black" disabled>{{$data->user->name}}</button>
                     Pembaca :
-                    <button class="btn btn-outline-dark" disabled>{{$lihat}}</button>
+                    <button class="btn btn-outline-black" disabled>{{$lihat}}</button>
                 </div>
 
                 </div>
@@ -37,8 +37,8 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Rekomendasi Produk') }}</div>
+            <div class="card bg-dark border-light">
+                <div class="card-header text-light border-light">{{ __('Rekomendasi Produk') }}</div>
 
                 <div class="card-body">
                     
@@ -50,11 +50,11 @@
                                 <div style="max-height:100px; overflow:hidden;" >
                                     <img src="{{ asset('storage/'. $file->foto) }}" class="card-img-top" alt="">
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body bg-dark text-light">
                                     <h5 class="card-title">{{ $file->namaProduk }}</h5>
                                     <h5 class="card-text">Rp {{ $file->harga }}</h5>
                                     <p class="card-text">{{ $file->descProduk }}</p>
-                                    <a class="nav-link btn btn-outline-dark" href="/">Beli</a>
+                                    <a class="nav-link btn btn-outline-secondary" href="/">Beli</a>
                                 </div>
                             </div>
                         </div>
