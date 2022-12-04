@@ -9,6 +9,32 @@
 
                 <div class="card-body">
 
+                @guest
+                    @if (Route::has('login'))
+                        
+                    @endif
+                    @else
+                    <form action="{{ url('home') }}" method="post">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="" class="form-label">Kategori</label>
+                        <select name="kategori_id" class="form-select" id="">
+                            <option selected value="">Semua Kategori</option>
+                            @foreach ($kategori as $ini)
+                            <option value="{{ $ini->id }}">{{ $ini->nama_kategori }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <input class="form-check-input m-1" name="uid" type="checkbox" value="{{ Auth::user()->id }}">
+                            <p>Tampilkan buku yang sudah saya baca</p>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-secondary mb-4">Submit</button>
+                </form>
+                @endguest
+
                 <!-- pilih kategori awal -->
                 <div class="dropdown mb-3">
                     <!-- <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

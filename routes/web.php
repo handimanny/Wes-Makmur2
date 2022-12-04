@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CariController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PenggunaController;
@@ -49,3 +50,5 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //kategori filter
 Route::get('{id}', [HomeController::class, 'kategori']);
+
+Route::post('home', [CariController::class, 'store']);

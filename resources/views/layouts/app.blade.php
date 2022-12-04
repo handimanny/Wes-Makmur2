@@ -30,7 +30,7 @@
 <div class="min">
   <div class="div">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-lg">
             <div class="container">
                 <a class="navbar-brand {{ request()->is('/*')? 'active fw-semibold':'' }}" href="{{ url('/') }}">
                     Wes Makmur
