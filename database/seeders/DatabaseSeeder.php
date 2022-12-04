@@ -73,7 +73,7 @@ class DatabaseSeeder extends Seeder
             'status'=> 'tampil',
         ]);
         Postingan::create([
-            'judul'=> 'jamu bubuk dia',
+            'judul'=> 'jamu bubuk dua',
             'isi'=> 'isi jamu bubuk dia Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             'tanggalDibuat'=> Carbon::parse(),
             'user_id'=> 2,

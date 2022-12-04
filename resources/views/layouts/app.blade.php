@@ -32,10 +32,10 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand {{ request()->is('/*')? 'active fw-semibold':'' }}" href="{{ url('/') }}">
                     Wes Makmur
                 </a>
-                <a class="nav-link" href="{{ url('rekomen') }}">
+                <a class="nav-link {{ request()->is('rekomen*')? 'active fw-semibold':'' }}" href="{{ url('rekomen') }}">
                     Rekomendasi
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -54,40 +54,54 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link {{ request()->is('login*')? 'active fw-semibold':'' }}" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link {{ request()->is('register*')? 'active fw-semibold':'' }}" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             @if (Auth::user()->role == 'editor')
-                            <a class="nav-link" href="{{ url('produk') }}">
+                            <li class="nav-item">
+                            <a class="nav-link {{ request()->is('produk*')? 'active fw-semibold':'' }}" href="{{ url('produk') }}">
                                 Produk
                             </a>
-                            <a class="nav-link" href="{{ url('postingan') }}">
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link {{ request()->is('postingan*')? 'active fw-semibold':'' }}" href="{{ url('postingan') }}">
                                 Postingan
                             </a>
-                            <a class="nav-link" href="{{ url('kategori') }}">
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link {{ request()->is('kategori*')? 'active fw-semibold':'' }}" href="{{ url('kategori') }}">
                                 Kategori
                             </a>
+                            </li>
                             @endif
                             @if (Auth::user()->role == 'admin')
-                            <a class="nav-link" href="{{ url('produk') }}">
+                            <li class="nav-item">
+                            <a class="nav-link {{ request()->is('produk*')? 'active fw-semibold':'' }}" href="{{ url('produk') }}">
                                 Produk
                             </a>
-                            <a class="nav-link" href="{{ url('postingan') }}">
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link {{ request()->is('postingan*')? 'active fw-semibold':'' }}" href="{{ url('postingan') }}">
                                 Postingan
                             </a>
-                            <a class="nav-link" href="{{ url('kategori') }}">
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link {{ request()->is('kategori*')? 'active fw-semibold':'' }}" href="{{ url('kategori') }}">
                                 Kategori
                             </a>
-                            <a class="nav-link" href="{{ url('pengguna') }}">
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link {{ request()->is('pengguna*')? 'active fw-semibold':'' }}" href="{{ url('pengguna') }}">
                                 Pengguna
                             </a>
+                            </li>
                             @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -19,14 +19,13 @@
                 </div>
                 <div class="mb-3">
                     Kategori :
-                    <a class="btn btn-outline-dark" >{{$data->kategori->nama_kategori}}</a>
+                    <button class="btn btn-outline-dark" disabled>{{$data->kategori->nama_kategori}}</button>
                     Tanggal dibuat :
-                    <a class="btn btn-outline-dark" >{{$data->tanggalDibuat}}</a>
+                    <button class="btn btn-outline-dark" disabled>{{$data->tanggalDibuat}}</button>
                     Pembuat :
-                    <a class="btn btn-outline-dark" >{{$data->user->name}}</a>
-                <!-- @foreach ($postingan as $file)
-                <span>Pembaca2 : {{ DB::table('lihats')->where('postingan_id', $file->id)->count() }}</span>
-                @endforeach -->
+                    <button class="btn btn-outline-dark" disabled>{{$data->user->name}}</button>
+                    Pembaca :
+                    <button class="btn btn-outline-dark" disabled>{{$lihat}}</button>
                 </div>
 
                 </div>

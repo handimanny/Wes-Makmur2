@@ -11,7 +11,7 @@
 
                 <!-- pilih kategori awal -->
                 <div class="dropdown mb-3">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Kategori
                     </a>

@@ -9,6 +9,7 @@ use App\Models\Produk;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -31,9 +32,8 @@ class HomeController extends Controller
     {
         //tampilan artikel di halaman
         $kategori = Kategori::all();
-        $lihat = Lihat::all();
         $data = Postingan::where('status', 'tampil')->get();
-        return view('home', compact('data','kategori','lihat'));
+        return view('home', compact('data','kategori'));
     }
 
     public function kategori($id)
@@ -46,21 +46,20 @@ class HomeController extends Controller
 
     public function halaman($id)
     {
-        $data = Postingan::findOrFail($id);
-        $postingan = Postingan::all(); //untuk @foreach ($postingan as $file), gak guna tapi
         // $kategori = Kategori::all();
         // $user = User::all();
-        // $lihat = Lihat::all();
+        $data = Postingan::findOrFail($id);
+        $lihat = Lihat::select('lihats')->where('postingan_id', $data->id)->count();
         $produk = Produk::select('*')->where('kategori_id', '=', $data->kategori_id)->where('status', 'tampil')->get();
         
         if (Lihat::where('postingan_id', $id)->where('user_id', Auth::user()->id)->exists()) {
-            return view('halaman', compact('data','produk','postingan'));
+            return view('halaman', compact('data','produk','lihat'));
         }else {
             Lihat::create([
                 'postingan_id' => $id,
                 'user_id' => Auth::user()->id,
             ]);
-            return view('halaman', compact('data','produk','postingan'));
+            return view('halaman', compact('data','produk','lihat'));
         }
     }
 }
